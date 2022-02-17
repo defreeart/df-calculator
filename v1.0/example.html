@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>DF Calculator Example</title>
+</head>
+<body>
+
+<section class="intro">
+    <div class="container mod-intro">
+        <form class="df-calculator" name="calc" action="">
+            <div class="df-calculator-panel">
+                <input class="df-calculator-first-display" type="text" name="txt" readonly>
+                <input class="df-calculator-second-display" type="text" name="txt" readonly>
+            </div>
+            <button data-entry="sqrt"><span>√</span></button>
+            <button data-entry="sqr"><span>x<sup>2</sup></span></button>
+            <button data-entry="clear"><span>c</span></button>
+            <button data-entry="del"><span>del</span></button>
+            <button data-entry="%"><span>%</span></button>
+            <button data-entry="/"><span>/</span></button>
+            <button data-entry="root"><span><sup>n</sup>√x</span></button>
+            <button data-entry="^"><span>x<sup>n</sup></span></button>
+            <button data-entry="7"><span>7</span></button>
+            <button data-entry="8"><span>8</span></button>
+            <button data-entry="9"><span>9</span></button>
+            <button data-entry="*"><span>×</span></button>
+            <button data-entry="sin"><span>sin</span></button>
+            <button data-entry="n!"><span>n!</span></button>
+            <button data-entry="4"><span>4</span></button>
+            <button data-entry="5"><span>5</span></button>
+            <button data-entry="6"><span>6</span></button>
+            <button data-entry="-"><span>–</span></button>
+            <button data-entry="cos"><span>cos</span></button>
+            <button data-entry="log"><span>log</span></button>
+            <button data-entry="1"><span>1</span></button>
+            <button data-entry="2"><span>2</span></button>
+            <button data-entry="3"><span>3</span></button>
+            <button data-entry="+"><span>+</span></button>
+            <button data-entry="tan"><span>tan</span></button>
+            <button data-entry="ln"><span>ln</span></button>
+            <button data-entry="0"><span>0</span></button>
+            <button data-entry="."><span>.</span></button>
+            <button data-entry="+-"><span>±</span></button>
+            <button data-entry="equal"><span>=</span></button>
+        </form>
+    </div>
+</section>
+
+<script src="js/df-calculator-v1.js"></script>
+<script>
+    DFCalculator();
+</script>
+
+</body>
+</html>

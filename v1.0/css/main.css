@@ -1,0 +1,249 @@
+/*
+
+1. CSS VARIABLES
+2. GLOBAL STYLES
+    2.1. GLOBAL STYLES: ELEMENTS
+3. SECTIONS
+    3.1. INTRO
+        3.1.1. DF CALCULATOR
+
+*/
+
+/* 1. CSS VARIABLES */
+/* ==================================== */
+
+:root {
+    /* SIZES */
+    --container-max-width: calc(30rem + (var(--container-padding)*2));
+    --calculator-gap: 4px;
+    --border-radius: 4px;
+
+    /* MARGINS & PADDINGS */
+    --section-padding: 2rem;
+    --container-padding: 1rem;
+    --button-padding: 0.5em 1em;
+
+    /* TRANSITIONS & ANIMATIONS */
+    --main-transition: .2s ease;
+
+    /* FONTS */
+    --main-font-family: Montserrat, sans-serif;
+    --main-font-size: 1.25rem;
+    --main-line-height: 1.5;
+    --small-font-size: 0.875rem;
+
+    /* COLORS */
+    --main-bg-color: hsl(200,11%,9%);
+    --main-text-color: rgb(255, 255, 255);
+    --main-accent-color: hsl(200, 100%, 45%);
+    --intro-bg-alpha-color: rgba(0, 0, 0, 0.1);
+    --calculator-bg-color: rgba(255, 255, 255, 0.9);
+    --calculator-second-bg-color: rgba(255, 255, 255, 0.2);
+    --calculator-button-bg-color: rgba(255, 255, 255, 0.5);
+    --calculator-shadow-first-color: rgba(255, 255, 255, 0.9);
+    --calculator-shadow-second-color: rgba(0, 0, 0, 0.1);
+    --calculator-clear-color: hsl(330, 100%, 50%);
+}
+
+@media (max-width: 920px) {
+    :root {
+        /* MARGINS & PADDINGS */
+        --section-padding: 1rem;
+        --container-padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        /* MARGINS & PADDINGS */
+        --section-padding: 0rem;
+
+        /* FONTS */
+        --main-font-size: 1rem;
+    }
+}
+
+/* 2. GLOBAL STYLES */
+/* ==================================== */
+
+html {
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    font-family: var(--main-font-family);
+    font-size: var(--main-font-size);
+    line-height: var(--main-line-height);
+    background: var(--main-bg-color);
+    color: var(--main-text-color);
+    min-width: 320px;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+section {
+    padding: var(--section-padding);
+    background-color: var(--main-bg-color);
+    overflow: hidden;
+}
+
+.container {
+    max-width: var(--container-max-width);
+    padding: var(--container-padding);
+    margin: 0 auto;
+}
+
+/* 2.1. GLOBAL STYLES: ELEMENTS */
+/* ==================================== */
+
+img {
+    border-style: none;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: var(--main-accent-color);
+}
+
+input,
+button {
+    display: block;
+    font-family: var(--main-font-family);
+    font-size: var(--main-font-size);
+    line-height: var(--main-line-height);
+    border: none;
+}
+
+input {
+    min-width: 0;
+}
+
+button {
+    -webkit-appearance: button;
+    cursor: pointer;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    padding: var(--button-padding);
+}
+
+button::-moz-focus-inner {
+    border-style: none;
+}
+
+/* 3. SECTIONS */
+/* ==================================== */
+
+/* 3.1. INTRO */
+/* ==================================== */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(var(--intro-bg-alpha-color), var(--intro-bg-alpha-color)), url('../images/scifi.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--main-bg-color);
+    min-height: 100vh;
+}
+
+.container.mod-intro {
+    width: 100%;
+}
+
+/* 3.1.1. DF CALCULATOR */
+/* ==================================== */
+
+.df-calculator {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    grid-gap: var(--calculator-gap);
+    padding: var(--calculator-gap);
+    border-radius: var(--border-radius);
+    background-color: var(--main-bg-color);
+    background-image: linear-gradient(var(--calculator-bg-color), var(--calculator-bg-color));
+}
+
+.df-calculator-panel {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    grid-column: span 6;
+    background-color: var(--main-bg-color);
+}
+
+.df-calculator-panel > input {
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    color: var(--main-text-color);
+}
+
+.df-calculator-panel > *:nth-child(1) {
+    font-size: var(--small-font-size);
+    background-color: var(--calculator-second-bg-color);
+}
+
+.df-calculator-panel > *:nth-child(2) {
+    background-color: inherit;
+}
+
+.df-calculator > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-bg-color);
+    background: linear-gradient(135deg, var(--calculator-button-bg-color), transparent);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    padding: 0.25em 0.5em;
+    position: relative;
+}
+
+.df-calculator > button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: var(--border-radius);
+    box-shadow: inset 1px 1px 1px 0px var(--calculator-shadow-first-color), inset -1px -1px 1px 0px var(--calculator-shadow-second-color);
+}
+
+.df-calculator > [data-entry="clear"] {
+    color: var(--calculator-clear-color);
+    text-transform: uppercase;
+}
+
+.df-calculator > button:hover,
+.df-calculator > button:focus {
+    background: linear-gradient(var(--calculator-button-bg-color), var(--calculator-button-bg-color)), linear-gradient(135deg, var(--calculator-button-bg-color), transparent);
+}
+
+.df-calculator > button:active span {
+    transform: translateY(1px);
+}
+
+.df-calculator > button:active::after {
+    box-shadow: inset 1px 1px 1px 0px var(--calculator-shadow-second-color), inset -1px -1px 1px 0px var(--calculator-shadow-first-color);
+}
